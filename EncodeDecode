@@ -9,13 +9,12 @@ if answer in ["encode"]:
     message_bytes = message.encode('ascii')
     base64_bytes = base64.b64encode(message_bytes)
     base64_message = base64_bytes.decode('ascii')
-    print(base64_message)
+    print(base64_message, "\n\n Press Any Button to Continue")
 # If Decode selected
 if answer in ["decode"]:
-    message = input("Please enter a secret")
+    message = input("Please enter your message")
     decoded = base64.b64decode(message).decode("utf-8")
     print(decoded, "\n\n\n Press Any Button to Continue")
-else:
-    print("Error! You provided incorrect syntax! \n\n\n Please try again")
+
 
 
