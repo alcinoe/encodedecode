@@ -1,14 +1,21 @@
-# import base64 module
+# Importing base64 module
 import base64
 
 answer = str(input("Would you like to Encode or Decode?"))
 
-# Here is where you enter what needs to be encoded or decoded
-secret = input("Please enter a secret: ")
+# If encode is selected
 if answer in ["encode"]:
-    encoded = base64.b64encode(bytes('your string', 'utf-8'))
-    print(encoded, "\n\n\n Press Any Button to Continue")
-
+    message = input("Please enter a secret")
+    message_bytes = message.encode('ascii')
+    base64_bytes = base64.b64encode(message_bytes)
+    base64_message = base64_bytes.decode('ascii')
+    print(base64_message)
+# If Decode selected
 if answer in ["decode"]:
-    decoded = base64.b64decode(secret).decode("utf-8")
+    message = input("Please enter a secret")
+    decoded = base64.b64decode(message).decode("utf-8")
     print(decoded, "\n\n\n Press Any Button to Continue")
+else:
+    print("Error! You provided incorrect syntax! \n\n\n Please try again")
+
+
